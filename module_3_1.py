@@ -29,4 +29,3 @@ print(if_contains('Pochemuchka',['potom','zatem']))
 print(string_info('right question includes answer'))
 print((if_contains('Apocaliptica',['lips', 'local','aPOCaLIPtica'] )))
 print(calls)
-
