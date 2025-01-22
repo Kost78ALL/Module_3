@@ -1,29 +1,29 @@
 
 def calculate_structure_sum(*sbor):
     op = []
-
+    summ = []
     op = list(*sbor)
     summa = 0
     print(op)
     def calculate_part(*detal):
-        summ = 0
-        if isinstance(detal, (tuple, set, list)):
-            for j in range(len(detal)):
-                if isinstance(detal[j], (int, float)):
-                    summ += detal[j]
-                elif isinstance(detal[j], str):
-                    summ += len(detal[j])
-                elif isinstance(detal[j], dict):
-                    total = sum(value for value in detal[j].values() if isinstance(value, (int, float)))
-                    total2 = sum(len(keys) for keys in detal[j].keys() if isinstance(keys, (str)))
-                    summ += total + total2
+        print(type(detal))
+        for j in range(len(detal)):
+            if isinstance(detal[j], (int, float)):
+                summ.append(detal[j])
+            elif isinstance(detal[j], str):
+                summ.append(len(detal[j]))
+            elif isinstance(detal[j], dict):
+                total = sum(value for value in detal[j].values() if isinstance(value, (int, float)))
+                total2 = sum(len(keys) for keys in detal[j].keys() if isinstance(keys, (str)))
+                summ.append(total)
+                summ.append(total2)
         print(summ)
         return  summ
     #print(summa)
     for i in range(len(op)):
         if isinstance(op[i], (tuple, set, list)):
             detal = op[i]
-            summa += calculate_part(detal)
+            summa += sum(calculate_part(detal))
         elif isinstance(op[i], (int, float)):
             summa += op[i]
             print(summa)
